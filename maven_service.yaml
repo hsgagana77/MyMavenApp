@@ -3,12 +3,10 @@ kind: Service
 metadata:
   name: tomcat-service
 spec:
-  type: NodePort
   selector:
     app: tomcat
   ports:
-  - name: http
-    protocol: TCP
-    port: 80           # service port inside cluster
-    targetPort: 8085   # container port
-    nodePort: 30885    # external access port (on host)
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+  type: NodePort
