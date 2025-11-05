@@ -11,7 +11,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # ===== STAGE 2: Deploy WAR to Tomcat =====
-FROM tomcat:10.1-jdk17
+FROM tomcat:9.0-jdk17
 WORKDIR /usr/local/tomcat
 
 # Remove default Tomcat webapps
