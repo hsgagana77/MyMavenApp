@@ -20,11 +20,8 @@ RUN rm -rf webapps/*
 # Copy WAR file from Maven build and rename it to ROOT.war
 COPY --from=build /app/target/*.war webapps/ROOT.war
 
-# Expose the container's Tomcat port
-EXPOSE 8085
-
-# Update Tomcat configuration to listen on 8085 instead of 8080
-RUN sed -i 's/port="8080"/port="8085"/' conf/server.xml
+# Expose the Tomcat port (default 8080)
+EXPOSE 8080
 
 # Start Tomcat
 CMD ["catalina.sh", "run"]
